@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
-import './App.css';
 
 class App extends Component {
   render() {
