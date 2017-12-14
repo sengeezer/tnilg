@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Form, FormGroup, InputGroup, Button, FormControl } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 class UrlBar extends Component {
@@ -16,7 +17,21 @@ class UrlBar extends Component {
   render() {
     return (
       <div className="urlBar">
-        <input value={this.state.feedUrl} onChange={this.handleInputChange} />
+        <Form horizontal>
+          <FormGroup>
+            <InputGroup>
+              <FormControl
+                type="text"
+                value={this.state.feedUrl}
+                placeholder="Enter URL"
+                onChange={this.handleInputChange}
+              />
+              <InputGroup.Button>
+                <Button>Submit</Button>
+              </InputGroup.Button>
+            </InputGroup>
+          </FormGroup>
+        </Form>
       </div>
     );
   }

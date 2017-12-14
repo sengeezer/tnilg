@@ -10,16 +10,21 @@ class FeedList extends Component {
     this.state = {
       feedUrl: '',
     };
+
+    this.updateFeedUrl = this.updateFeedUrl.bind(this);
   }
-  feedUrlChanged(url) {
+  updateFeedUrl(url) {
     this.setState({ feedUrl: url });
-    console.log('feed url changed');
+  }
+  addFeedUrl(ev) {
+    ev.preventDefault();
+    console.log(JSON.stringify(this.state.feedUrl));
   }
   render() {
     return (
       <Col xs={6} md={4}>
         <Row>
-          <UrlBar onUrlChange={this.feedUrlChanged} />
+          <UrlBar onUrlChange={this.updateFeedUrl} />
         </Row>
         <Row>
           Feed list
