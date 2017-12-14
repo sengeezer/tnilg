@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
+import axios from 'axios';
 
 import UrlBar from '../components/UrlBar';
 
@@ -19,6 +20,15 @@ class FeedList extends Component {
   addFeedUrl(ev) {
     ev.preventDefault();
     console.log(JSON.stringify(this.state.feedUrl));
+    const url = this.state.feedUrl;
+    // axios returns a promise
+    axios.get(url)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
   render() {
     return (
