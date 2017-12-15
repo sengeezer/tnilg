@@ -18,6 +18,7 @@ class UrlBar extends Component {
   handleFormSubmit(ev) {
     ev.preventDefault();
     this.props.onUrlSubmit();
+    this.setState({ feedUrl: '' });
   }
   render() {
     return (

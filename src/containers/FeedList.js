@@ -31,7 +31,7 @@ class FeedList extends Component {
     fetch(url, reqOpts)
       .then(result => result.json())
       .then((json) => {
-        console.log(json);
+        console.log(json.data);
         const feeds = Object.assign([], this.state.feeds);
 
         feeds.push({ name: url });
