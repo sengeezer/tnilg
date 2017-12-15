@@ -8,11 +8,16 @@ class UrlBar extends Component {
 
     this.state = { feedUrl: '' };
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
   handleInputChange(ev) {
     const feedUrl = ev.target.value;
     this.setState({ feedUrl });
     this.props.onUrlChange(feedUrl);
+  }
+  handleFormSubmit(ev) {
+    ev.preventDefault();
+    this.props.onUrlSubmit();
   }
   render() {
     return (
@@ -27,7 +32,7 @@ class UrlBar extends Component {
                 onChange={this.handleInputChange}
               />
               <InputGroup.Button>
-                <Button>Submit</Button>
+                <Button onClick={this.handleFormSubmit}>Submit</Button>
               </InputGroup.Button>
             </InputGroup>
           </FormGroup>
@@ -39,6 +44,7 @@ class UrlBar extends Component {
 
 UrlBar.propTypes = {
   onUrlChange: PropTypes.func,
+  onUrlSubmit: PropTypes.func,
 };
 
 export default UrlBar;
