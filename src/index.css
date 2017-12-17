@@ -11,3 +11,7 @@ body {
 .urlBar input {
   width: 75%;
 }
+
+.postsList {
+  list-style: none;
+}
