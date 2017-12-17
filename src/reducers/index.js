@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 
+import FeedReducer from './feed';
+
 const rootReducer = combineReducers({
-  state: (state = {}) => state,
+  feed: FeedReducer,
 });
 
 export default rootReducer;
