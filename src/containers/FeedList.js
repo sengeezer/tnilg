@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Row, Col } from 'react-bootstrap';
 
 import UrlBar from '../components/UrlBar';
@@ -21,24 +23,16 @@ class FeedList extends Component {
   addFeedUrl() {
     console.log(this.state.feedUrl);
     const url = this.state.feedUrl;
-    const reqOpts = {
-      method: 'GET',
-      // mode: 'no-cors',
-    };
-    // 'https://www.reddit.com/r/reactjs.json'
-    // For text: result.text()
-    // console.log(result);
-    fetch(url, reqOpts)
-      .then(result => result.json())
-      .then((json) => {
-        console.log(json.data);
-        const feeds = Object.assign([], this.state.feeds);
+    // URL example: 'https://www.reddit.com/r/reactjs.json'
 
-        feeds.push({ name: url });
-        this.setState({
-          feeds,
-        });
-      });
+    const feeds = Object.assign([], this.state.feeds);
+
+    feeds.push({ name: url });
+    this.setState({
+      feeds,
+    });
+
+    this.props.fetchFeed(url);
   }
   render() {
     return (
@@ -63,4 +57,8 @@ class FeedList extends Component {
   }
 }
 
-export default FeedList;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchFeed }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(FeedList);
