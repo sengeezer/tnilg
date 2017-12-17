@@ -3,8 +3,8 @@ import { Panel } from 'react-bootstrap';
 
 export default (props) => {
   return (
-    <Panel header={<strong>{props.title}</strong>}>
-      <p>Post content</p>
+    <Panel header={<h4><strong>{props.title}</strong><span> - {props.date}</span></h4>}>
+      <p>{props.content}</p>
     </Panel>
   );
 };
