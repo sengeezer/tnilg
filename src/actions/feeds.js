@@ -12,16 +12,16 @@ export const addFeed = (url) => {
   };
 };
 
-export const selectFeed = (feedId) => {
+export const selectFeed = (id) => {
   return {
     type: SELECT_FEED,
-    feedId,
+    id,
   };
 };
 
-export const removeFeed = (feedId) => {
+export const removeFeed = (id) => {
   return {
     type: REMOVE_FEED,
-    feedId,
+    id,
   };
 };

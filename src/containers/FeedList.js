@@ -4,6 +4,10 @@ import { bindActionCreators } from 'redux';
 import { Row, Col } from 'react-bootstrap';
 
 import UrlBar from '../components/UrlBar';
+import Feed from '../components/Feed';
+
+import { fetchFeed } from '../actions';
+import { addFeed, selectFeed, removeFeed } from '../actions/feeds';
 
 class FeedList extends Component {
   constructor(props) {
@@ -25,12 +29,7 @@ class FeedList extends Component {
     const url = this.state.feedUrl;
     // URL example: 'https://www.reddit.com/r/reactjs.json'
 
-    const feeds = Object.assign([], this.state.feeds);
-
-    feeds.push({ name: url });
-    this.setState({
-      feeds,
-    });
+    this.props.addFeed(url);
 
     this.props.fetchFeed(url);
   }
@@ -44,9 +43,10 @@ class FeedList extends Component {
           <h3>Feed list</h3>
           <ul>
             {
-              this.state.feeds.map((feed, i) => {
+              this.state.feeds.map((feed) => {
                 return (
-                  <li key={`feed${i}`}><a href="#">{feed.name}</a></li>
+                  // <li key={feed.id}><a href="#">{feed.url}</a></li>
+                  <Feed key={feed.id} url={feed.url} />
                 );
               })
             }
@@ -58,7 +58,9 @@ class FeedList extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchFeed }, dispatch);
+  return bindActionCreators({
+    fetchFeed, addFeed, selectFeed, removeFeed,
+  }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(FeedList);
