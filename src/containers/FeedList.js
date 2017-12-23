@@ -43,7 +43,7 @@ class FeedList extends Component {
           <h3>Feed list</h3>
           <ul>
             {
-              this.state.feeds.map((feed) => {
+              this.props.feeds.map((feed) => {
                 return (
                   // <li key={feed.id}><a href="#">{feed.url}</a></li>
                   <Feed key={feed.id} url={feed.url} />
@@ -57,10 +57,14 @@ class FeedList extends Component {
   }
 }
 
+function mapStateToProps({ feeds }) {
+  return { feeds };
+}
+
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     fetchFeed, addFeed, selectFeed, removeFeed,
   }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(FeedList);
+export default connect(mapStateToProps, mapDispatchToProps)(FeedList);
