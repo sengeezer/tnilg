@@ -12,6 +12,11 @@ body {
   width: 75%;
 }
 
-.postsList {
+.postsList,
+.feedList {
   list-style: none;
+}
+
+.feedList {
+  padding-left: 0;
 }

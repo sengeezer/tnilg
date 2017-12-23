@@ -41,11 +41,10 @@ class FeedList extends Component {
         </Row>
         <Row>
           <h3>Feed list</h3>
-          <ul>
+          <ul className="feedList">
             {
               this.props.feeds.map((feed) => {
                 return (
-                  // <li key={feed.id}><a href="#">{feed.url}</a></li>
                   <Feed key={feed.id} url={feed.url} />
                 );
               })
