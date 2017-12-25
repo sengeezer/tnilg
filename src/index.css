@@ -20,3 +20,7 @@ body {
 .feedList {
   padding-left: 0;
 }
+
+.panelFeedUrl {
+  margin-right: 25px;
+}

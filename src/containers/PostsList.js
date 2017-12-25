@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Post from '../components/Post';
 
@@ -9,27 +10,24 @@ class PostsList extends Component {
     const content = postData.data.selftext;
 
     return (
-      <Post title="{title}" date="{date}" content="{content}" />
+      <Post key={title} title={title} date={date} content={content} />
     );
   }
   render() {
     return (
       <div>
         <h2>Selected feed title</h2>
-        <ul className="postsList">
-          <li>
-            <Post title="Post #1" date="14/12/17" content="Lorem ipsum dolor sit amet" />
-          </li>
-          <li>
-            <Post title="Post #2" date="15/12/17" content="Lorem ipsum dolor sit amet" />
-          </li>
-          <li>
-            <Post title="Post #3" date="16/12/17" content="Lorem ipsum dolor sit amet" />
-          </li>
-        </ul>
+        {this.props.feed.map(this.renderPost)}
+
+        <Post title="Post #1" date="14/12/17" content="Lorem ipsum dolor sit amet" />
       </div>
     );
   }
 }
 
-export default PostsList;
+function mapStateToProps({ feed }) {
+  return { feed };
+}
+
+// export default PostsList;
+export default connect(mapStateToProps, null)(PostsList);

@@ -5,7 +5,7 @@ export default (props) => {
   return (
     <li key={props.id}>
       <Panel>
-        {props.url}
+        <span className="panelFeedUrl">{props.url}</span>
         <Button bsStyle="danger"><Glyphicon glyph="remove" /></Button>
       </Panel>
     </li>
