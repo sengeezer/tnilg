@@ -9,7 +9,7 @@ class PostsList extends Component {
 
     const postsToRender = allPosts.map((aPost) => {
       const title = aPost.data.title;
-      const date = aPost.data.created_utc;
+      const date = new Date(aPost.data.created_utc * 1000).toLocaleDateString();
       const content = aPost.data.selftext;
       return <Post key={title} title={title} date={date} content={content} />;
     });
