@@ -33,6 +33,12 @@ class FeedList extends Component {
 
     this.props.fetchFeed(url);
   }
+  deleteFeedUrl() {
+    const { id } = this.props.match.params;
+    this.props.removeFeed(id, () => {
+      this.props.history.push('/');
+    });
+  }
   render() {
     return (
       <Col xs={6} md={4}>

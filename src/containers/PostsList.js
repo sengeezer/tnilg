@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 import Post from '../components/Post';
 
 class PostsList extends Component {
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    // this.props.fetchPost(id);
+  }
   renderPost(postData) {
     const allPosts = postData.data.children;
 
