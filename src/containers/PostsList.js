@@ -9,12 +9,12 @@ class PostsList extends Component {
     // this.props.fetchPost(id);
   }
   renderPost(postData) {
-    const allPosts = postData.data.children;
+    const allPosts = postData.items;
 
     const postsToRender = allPosts.map((aPost) => {
-      const title = aPost.data.title;
-      const date = new Date(aPost.data.created_utc * 1000).toLocaleDateString();
-      const content = aPost.data.selftext;
+      const title = aPost.title;
+      const date = new Date(aPost.published).toLocaleDateString();
+      const content = aPost.content.content;
       return <Post key={title} title={title} date={date} content={content} />;
     });
 

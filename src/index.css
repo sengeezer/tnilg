@@ -24,3 +24,7 @@ body {
 .panelFeedUrl {
   margin-right: 25px;
 }
+
+.panel-body img {
+  max-width: 100%;
+}
