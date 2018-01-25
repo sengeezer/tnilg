@@ -1,5 +1,4 @@
 import React from 'react';
-// import marked from 'marked';
 import { Panel } from 'react-bootstrap';
 
 export default (props) => {
