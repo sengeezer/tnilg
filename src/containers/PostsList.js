@@ -30,8 +30,8 @@ class PostsList extends Component {
   }
 }
 
-function mapStateToProps({ feed }) {
-  return { feed };
+function mapStateToProps({ feed, feeds }, ownProps) {
+  return { feed, feeds: feeds[ownProps.match.params.id] };
 }
 
 export default connect(mapStateToProps, null)(PostsList);
