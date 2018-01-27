@@ -51,7 +51,7 @@ class FeedList extends Component {
             {
               this.props.feeds.map((feed) => {
                 return (
-                  <Feed key={feed.id} url={feed.url} />
+                  <Feed key={feed.id} id={feed.id} url={feed.url} />
                 );
               })
             }

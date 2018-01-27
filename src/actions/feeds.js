@@ -7,7 +7,7 @@ let nextFeedId = 0;
 export const addFeed = (url) => {
   return {
     type: ADD_FEED,
-    id: nextFeedId++,
+    id: `fd${nextFeedId++}`,
     url,
   };
 };
